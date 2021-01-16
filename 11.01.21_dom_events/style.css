@@ -1,0 +1,45 @@
+.main{
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    background-color: #fff3e8;
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    min-height: 500px;
+}
+.elem{
+    background-color: #fff;
+    min-width: 100px;
+    border: 2px solid gray;
+    padding: 10px;
+    border-radius: 10px;
+    width: max-content;
+    height: max-content;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+.elem:hover{
+   border-color: #584032;
+}
+.selected{
+    border-color: #cbcbcb;
+    background-color: #d2dafb;
+
+}
+
+.sub-menu{
+    position: absolute;
+    z-index: 5;
+    display: none;
+    width: max-content;
+    min-width: 70px;
+    background-color: #ead5bf;
+    border-radius: 10px;
+    padding: 10px 0;
+    text-align: center;
+}
+.sub-menu>div:hover{
+    background-color: #f1cba3;
+    cursor: pointer;
+}
