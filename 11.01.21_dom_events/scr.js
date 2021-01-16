@@ -14,7 +14,7 @@ window.onload = () => {
 
 
 
-    main.addEventListener('click', (event)=>{
+   main.addEventListener('click', (event)=>{
         if (event.target == main) {
             del.style.display = "none"
             add.style.top = event.pageY + "px"
@@ -50,7 +50,7 @@ window.onload = () => {
                         del.style.display = "none"
                     }
             })
-            /*///// drag&drop
+            ///// drag&drop
             elem.addEventListener('mousedown', (event) => {
 
 
@@ -85,12 +85,13 @@ window.onload = () => {
                 return false
             })
             elem.ondragstart = () => false
-            /////*/
+            /////!
         }
     })
 
     // Selection
    /* main.addEventListener('mousedown', (event) => {
+        event.preventDefault()
         for (elem of elements){
             if(elem.classList.contains("selected")) elem.classList.remove("selected")
         }
