@@ -4,6 +4,8 @@
     width: 80%;
     background-color: #fff3e8;
     display: flex;
+    flex-wrap: wrap;
+    align-content: baseline;
     gap: 15px;
     padding: 20px;
     min-height: 500px;
