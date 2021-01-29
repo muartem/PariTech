@@ -8,7 +8,7 @@ const outer = (val) => {
     }
     con.innerText +=  `${val||""}\n\n`
     const timerId = setInterval(() => {
-        con.scrollBy(0,2)
+        con.scrollBy(0,1)
     }, 1)
     setTimeout(() => clearInterval(timerId), con.scrollHeight*2)
 }
