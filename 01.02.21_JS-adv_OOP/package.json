@@ -1,0 +1,16 @@
+{
+  "name": "Home-Work",
+  "version": "9.0",
+  "description": "https://academy.edu.pm.tech/unit/view/id:3133",
+  "main": "intro/Person.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "Artem Martyniuk",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
