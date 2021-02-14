@@ -1,0 +1,165 @@
+.active>.miniGit>path{
+    fill: #26a69a;
+}
+
+.search-area{
+    transition-duration: .7s;
+    padding-top: 15px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+
+.logo{
+    margin: 20vh 0 0 0;
+    width: 100%;
+}
+
+.logo>img{
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.afterSearch .logo{
+    display: none;
+}
+
+.afterSearch .search-area{
+    margin: 0;
+    width: 50%;
+}
+
+.search-icon{
+    width: 65%;
+}
+
+.search-icon path{
+    fill: #646464;
+}
+.active>.search-icon>g>path{
+    fill: #538683;
+}
+.search-icon:hover path {
+    fill: #26a69a;
+}
+#log{
+    color: red;
+    transition-duration: 500ms;
+    width: fit-content;
+    margin: 0 auto;
+    transform: translateY(-40px);
+}
+
+
+.card{
+    min-height: 470px;
+    cursor: pointer;
+}
+.card-action{
+    position: absolute!important;
+    bottom: 0;
+}
+.card-action>a{
+
+    color: #26a69a!important;
+}
+.card-title{
+    width: 100%;
+    background-color: rgba(0,0,0, .3);
+    text-shadow: 1px 1px 0 black;
+    padding: 10px 24px!important;
+    margin: 15px 0;
+}
+.card-content span{
+    float: right;
+    font-weight: 600;
+}
+.material-icons{
+    font-size: 18px!important;
+}
+
+.fixed-action-btn{
+    bottom: 50px;
+    right: -70px;
+    transition: all 1s ease-out;
+}
+.fixed-action-btn i{
+    font-size: 30px;
+}
+.sidebar{
+    height: max-content;
+}
+.one{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 15px;
+}
+.one>div{
+    padding: 0 30px;
+    min-height: 200px;
+    background-color: #f4fcfc;
+}
+.one .card-title{
+    font-size: 20px;
+    text-align: center;
+    margin: -15px auto 15px;
+    background-color: rgba(0,0,0,0);
+}
+.one .user-img,
+.one .repo-img{
+    width: 100%;
+    border-radius: 50%;
+}
+.one .card-image{
+    width: 70%;
+    margin: 20px auto ;
+}
+.user-flw_rep{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: min-content;
+    grid-gap: 15px;
+    overflow-y: scroll;
+    max-height: 500px;
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0);
+}
+::-webkit-scrollbar-thumb {
+    background: #6ea5a1;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #26a69a;
+}
+.user-flw_rep .card-title{
+    font-size: 14px;
+    margin: 0 auto;
+}
+.user-flw_rep .card-image{
+    margin: 0 auto;
+}
+@media screen and (max-width: 1400px){
+    .user-flw_rep{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (max-width: 1280px){
+    .user-flw_rep{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px){
+    .user-flw_rep{
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (max-width: 720px){
+    .one{
+        grid-template-columns: 1fr;
+    }
+}
