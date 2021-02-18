@@ -1,0 +1,27 @@
+.card{
+    border-radius: 25px;
+    padding: 25px;
+    color: #FFF;
+    text-align: center;
+}
+.card:hover{
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+p{
+    min-width: 150px;
+    text-align: left;
+}
+span{
+    color: #FFFFFF70;
+}
+h2{
+    text-transform: uppercase;
+}
+.icon{
+    float: left;
+    margin-right: 10px;
+    height: 60px;
+    width: 60px;
+    background: center no-repeat;
+}
