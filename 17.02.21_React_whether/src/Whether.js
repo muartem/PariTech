@@ -1,87 +1,55 @@
-/*
+import Config from "./Config";
 
-const getUserIp = async () => {
-    const ip = await fetch('https://api.ipify.org')
-    if(!ip.ok) throw new Error(`Error ${ip.status}. ${ip.statusText}`)
-    const text = await ip.text()
-    return text
+const days = ["Воскресение", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота" ]
+const month = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря" ]
+
+const getDate = (date) => {
+    const dateArr = date.split("/")
+    return {
+        full: dateArr[0] +" "+ month[dateArr[1]-1] + ` 20${dateArr[2]}`,
+        day: days[(new Date(`${dateArr[1]}/${dateArr[0]}/${dateArr[2]}`)).getDay()]
+    }
+}
+const getIcon = (whether) => {
+    let icon = ""
+    const hours = new Date().getHours()
+    const dayTime = !(hours > 6 && hours < 21) ? "d" : "n"
+
+    if (!whether.mist) {
+        if (whether.cloudiness === 3) icon += "c3"
+        else if (whether.cloudiness === 0) icon += dayTime
+        else icon += `${dayTime}_c${whether.cloudiness}`
+    }
+    if (whether.precipitation.intensity > 0) {
+        icon += `_${whether.precipitation.type + whether.precipitation.intensity}`
+    }
+
+    if (whether.storm) icon += "_st"
+    if (whether.cloudiness !== 3 && whether.mist) icon += "_mist"
+    if (icon[0] === "_") icon = icon.substr(1)
+
+    return icon
+}
+const getWindDirect = (direct) => {
+    switch (direct){
+        case "n": return 0;
+        case "s": return 180;
+        case "w": return 270;
+        case "e": return 90;
+        case "nw": return 315;
+        case "ne": return 45;
+        case "sw": return 225;
+        case "se": return 135;
+        default: return 0;
+    }
 }
 
-const getForecast = async () =>{
-    const data = await fetch(`https://api.gismeteo.net/v2/search/cities/?ip=${await getUserIp()}`)
-    if(!data.ok) throw new Error(`Error ${data.status}. ${data.statusText}`)
-    const json = await data.json()
-    console.log(json)
-    return json
-}
+const WHETHER = Config.map(w => {
+    w.img = getIcon(w)
+    w.day = getDate(w.date).day
+    w.date = getDate(w.date).full
+    w.wind.directionDeg = getWindDirect(w.wind.direction)
+    return w
+})
 
-*/
-
-const days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб" ]
-const month = ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь" ]
-const getDay = (add) =>{
-    const day = new Date()
-    day.setDate(day.getDate() + add)
-    return `${days[day.getDay()]} ${day.getDate()}/${day.getMonth()+1}/${day.getFullYear()-2000}`
-}
-//Что бы отобразить месяц буквами month[day.getMonth()]
-//Но оно не вписываеться в дизайн, да и люди уже привыкли на всех гаджетах формат 20.02.21
-
-export const WHETHER = [
-    {
-        date: "Сегодня",
-        img: "d",
-        pred: 60,
-        speed: 50,
-        max: -2,
-        min: -12,
-    },
-    {
-        date: "завтра",
-        img: "n_st",
-        pred: 0,
-        speed: 50,
-        max: -2,
-        min: -12,
-    },
-    {
-        date: getDay(+2),
-        img: "d_c1_s2",
-        pred: 60,
-        speed: 50,
-        max: -6,
-        min: -18,
-    },
-    {
-        date: getDay(+3),
-        img: "d_c2_s1",
-        pred: 10,
-        speed: 10,
-        max: -8,
-        min: -15,
-    },
-    {
-        date: getDay(+4),
-        img: "n",
-        pred: 60,
-        speed: 50,
-        max: -2,
-        min: -12,
-    },
-    {
-        date: getDay(+5),
-        img: "s3_mist",
-        pred: 60,
-        speed: 50,
-        max: -2,
-        min: -12,
-    },
-    {
-        date: getDay(+6),
-        img: "s3_st_mist",
-        pred: 60,
-        speed: 50,
-        max: -2,
-        min: -12,
-    },
-]
+export default WHETHER
