@@ -13,7 +13,7 @@ const getDate = (date) => {
 const getIcon = (whether) => {
     let icon = ""
     const hours = new Date().getHours()
-    const dayTime = !(hours > 6 && hours < 21) ? "d" : "n"
+    const dayTime = (hours > 6 && hours < 21) ? "d" : "n"
 
     if (!whether.mist) {
         if (whether.cloudiness === 3) icon += "c3"
