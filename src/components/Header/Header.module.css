@@ -1,0 +1,25 @@
+.nav{
+    background-color: #051b1199!important;
+    font-family: Mistral, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.scroll{
+    background-color: #051b11!important;
+}
+.brand{
+    padding-top: 10px;
+    font-size: 1.4em;
+}
+.nav li{
+    position: relative;
+}
+.nav li:before{
+    content: ">";
+    position: absolute;
+    top: 8px;
+    color: #ffffff99;
+    right: -6px;
+}
+.nav li:last-child:before{
+    content: "";
+}
+
