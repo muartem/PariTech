@@ -1,0 +1,48 @@
+.home{
+    margin: 25px 0;
+}
+.gallery{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 25px;
+}
+
+.gallery>a{
+    min-height: 200px;
+    border-radius: 25px;
+    background-color: #00ff8022;
+}
+.gallery>a:hover{
+    background-color: #00ff8011;
+}
+
+.loadMore{
+    line-height: 1.6em;
+    font-size: 1.6em;
+    margin: 40px auto 0 auto;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #00ff8022;
+    cursor: pointer;
+}
+.loadMore:hover{
+    text-shadow: 2px 5px 5px #ffffff55, 0 0 1em #00ff80;
+    background-color: #00ff8011;
+}
+.loadMore:active{
+    cursor: wait;
+}
+@media screen and (max-width: 1000px) {
+    .gallery{
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .gallery{
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+}
